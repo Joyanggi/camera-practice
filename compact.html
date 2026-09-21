@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html,body{margin:0}</style>
+<title>28mm 여덟 주</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F1F2EF;--paper-2:#E6E8E3;--ink:#15191A;--ink-2:#4B5153;--ink-3:#868C8B;
+  --rule:#D3D7D1;--mark:#D14430;--mark-soft:rgba(209,68,48,.10);
+  --serif:"Gowun Batang",'Apple SD Gothic Neo',serif;
+  --sans:"IBM Plex Sans KR",'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+  --mono:"IBM Plex Mono","IBM Plex Sans KR",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121413;--paper-2:#1A1D1C;--ink:#E9ECE7;--ink-2:#A6ACA8;
+    --ink-3:#6C7371;--rule:#2A2E2C;--mark:#FF6B4D;--mark-soft:rgba(255,107,77,.13);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121413;--paper-2:#1A1D1C;--ink:#E9ECE7;--ink-2:#A6ACA8;
+  --ink-3:#6C7371;--rule:#2A2E2C;--mark:#FF6B4D;--mark-soft:rgba(255,107,77,.13);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;
+  font-size:16px;line-height:1.75;padding:0 20px;padding-block:0 72px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:740px;margin:0 auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500}
+
+.mast{padding-block:56px 40px;border-bottom:1px solid var(--ink)}
+.mast h1{font-size:clamp(34px,8vw,52px);line-height:1.15;letter-spacing:-.01em;margin-top:14px}
+.mast .thesis{font-family:var(--serif);font-size:clamp(17px,3.4vw,20px);line-height:1.8;
+  color:var(--ink-2);margin:22px 0 0;max-width:34em}
+.mast .thesis em{font-style:normal;color:var(--ink);box-shadow:inset 0 -.42em 0 var(--mark-soft)}
+.gearline{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+.gearline span::before{content:"· ";color:var(--mark)}
+
+.meter{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-block:16px;
+  border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:12px;
+  color:var(--ink-3);letter-spacing:.06em}
+.meter b{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+.bar{flex:1 1 140px;height:3px;background:var(--rule);position:relative;min-width:120px}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--mark);width:0;transition:width .25s ease}
+
+/* diagnosis */
+.diag{padding-block:44px 8px}
+.diag h2{font-size:25px;margin-bottom:8px}
+.diag .lede{color:var(--ink-2);font-size:15.5px;margin:10px 0 26px;max-width:36em}
+.finds{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none}
+.find{display:grid;grid-template-columns:62px 1fr;gap:0 18px;padding-block:18px;border-top:1px solid var(--rule)}
+.find:first-child{border-top:1px solid var(--ink)}
+.find .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mark);padding-top:5px}
+.find h3{font-size:17px;line-height:1.5;margin-bottom:7px}
+.find p{margin:0;color:var(--ink-2);font-size:15px}
+.find .good{color:var(--ink-2);font-size:14px;margin-top:8px;padding-left:12px;
+  border-left:2px solid var(--rule)}
+@media (max-width:560px){.find{grid-template-columns:1fr;gap:8px}.find .k{padding-top:0}}
+
+/* axes */
+.axes{padding-block:46px 8px;display:flex;flex-direction:column;gap:38px}
+.axis{display:grid;grid-template-columns:76px 1fr;gap:0 22px;align-items:start}
+.axis .ko{font-family:var(--serif);font-size:30px;line-height:1;color:var(--mark);
+  border-top:2px solid var(--mark);padding-top:12px}
+.axis .ko small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--ink-3);margin-top:8px;text-transform:uppercase}
+.axis h3{font-size:19px;line-height:1.5;margin-bottom:8px}
+.axis p{margin:0 0 14px;color:var(--ink-2);font-size:15.5px}
+.drills{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.setting{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:12px;
+  padding-top:10px;border-top:1px dashed var(--rule);line-height:1.7}
+@media (max-width:560px){
+  .axis{grid-template-columns:1fr;gap:14px}
+  .axis .ko{display:flex;align-items:baseline;gap:12px;padding-top:10px}
+  .axis .ko small{margin-top:0}
+}
+
+.steps{display:flex;flex-direction:column}
+.step{padding-block:34px;border-top:1px solid var(--rule)}
+.step:first-child{border-top:2px solid var(--ink)}
+.stephead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.stepno{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--mark);letter-spacing:.12em}
+.when{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:auto}
+.step h2{font-size:24px;line-height:1.35}
+.step .lede{color:var(--ink-2);font-size:15.5px;margin:10px 0 22px;max-width:36em}
+
+.rows{display:flex;flex-direction:column;margin:0;padding:0;list-style:none}
+.row{display:grid;grid-template-columns:26px 1fr;gap:0 12px;align-items:start;
+  padding-block:13px;border-top:1px solid var(--rule)}
+.row:first-child{border-top:none}
+.tick{width:19px;height:19px;margin-top:4px;padding:0;background:transparent;
+  border:1px solid var(--ink-3);border-radius:2px;cursor:pointer;display:grid;place-items:center;
+  color:transparent;transition:.15s}
+.tick:hover{border-color:var(--mark)}
+.tick:focus-visible{outline:2px solid var(--mark);outline-offset:2px}
+.tick[aria-checked="true"]{background:var(--mark-soft);border-color:var(--mark);color:var(--mark)}
+.tick svg{width:13px;height:13px;display:block}
+.row .ttl{font-size:15.5px;font-weight:400;line-height:1.55;text-decoration:none;
+  border-bottom:1px solid var(--rule);display:inline}
+.row .ttl:hover{border-bottom-color:var(--mark);color:var(--mark)}
+.row .meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.03em;
+  margin-top:5px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.row .meta .ch{color:var(--ink-2)}
+.row .why{font-size:13.5px;color:var(--ink-2);margin-top:6px;line-height:1.65}
+.row .why b{font-weight:500;color:var(--ink)}
+.row[data-done="1"] .ttl{color:var(--ink-3)}
+.row[data-done="1"] .why,.row[data-done="1"] .meta{opacity:.55}
+.tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--rule);padding:1px 6px;border-radius:2px;color:var(--ink-3)}
+.tag.core{border-color:var(--mark);color:var(--mark)}
+
+.field{margin-top:24px;border-left:2px solid var(--mark);padding:2px 0 2px 18px}
+.field .eyebrow{color:var(--mark)}
+.field ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column}
+.field .row{grid-template-columns:26px 1fr;border-top:1px solid var(--rule);padding-block:11px}
+.field .row .ttl{border-bottom:none;font-size:15px}
+.field .row .why{margin-top:3px}
+
+.preset{border-top:1px solid var(--rule);padding-block:22px}
+.preset:first-of-type{border-top:1px solid var(--ink)}
+.preset h3{font-size:19px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.preset h3 span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mark);font-weight:500}
+.preset .tagline{color:var(--ink-2);font-size:14.5px;margin:6px 0 14px;max-width:34em}
+.preset ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.preset li{display:grid;grid-template-columns:186px 1fr;gap:16px;font-size:14.5px;color:var(--ink-2)}
+.preset li b{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--ink-3);
+  letter-spacing:.02em;padding-top:4px;line-height:1.5}
+.preset li i{font-style:normal;color:var(--ink)}
+@media (max-width:560px){.preset li{grid-template-columns:1fr;gap:1px}.preset li b{padding-top:0}}
+.tablewrap{overflow-x:auto;margin-top:22px}
+.tablewrap.narrow table{min-width:0;font-size:13.5px}
+.tablewrap.narrow td.name{white-space:normal;padding-right:14px}
+.tablewrap.narrow td,.tablewrap.narrow th{padding-right:12px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+th,td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;border-bottom:1px solid var(--ink)}
+td.name{font-family:var(--serif);font-weight:700;white-space:nowrap;padding-right:20px}
+td.role{color:var(--ink-2)}
+
+.log{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.log div{background:var(--paper);padding:14px 16px}
+.log dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mark);margin-bottom:6px}
+.log dd{margin:0;font-size:14px;color:var(--ink-2);line-height:1.6}
+.cadence{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.cadence li{display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:15px;color:var(--ink-2)}
+.cadence b{font-family:var(--mono);font-size:11.5px;color:var(--mark);font-weight:500;
+  letter-spacing:.06em;padding-top:4px;white-space:nowrap}
+
+footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.8}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>
+.rule{display:grid;grid-template-columns:150px 1fr;gap:6px 18px;font-size:14.5px;color:var(--ink-2);padding-block:10px;border-top:1px solid var(--rule)}
+.rule b{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--ink);letter-spacing:.04em;padding-top:3px}
+.q{margin:14px 0 0;padding:10px 14px;border-left:2px solid var(--ink);color:var(--ink);font-size:14.5px;background:var(--paper-2,transparent)}
+.q b{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mark);margin-right:8px}
+@media (max-width:520px){.rule{grid-template-columns:1fr}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">리코 GR IV · 28mm · 압축판</div>
+    <h1>28mm 여덟 주</h1>
+    <p class="thesis">한 주에 개념 하나, 과제 하나. <em>빛을 보고, 거리를 바꾸고, 하나의 화각으로 오래 찍어 보는 것.</em> 그리고 찍은 사진을 보며 내가 무엇을 좋아하고 싫어하는지 말로 설명한다. 영상 31편과 GR 세팅의 세부는 <a href="training.html" target="_blank" rel="noopener">원본 수련표</a>에 그대로 있고, 여기에는 필수 11편과 카메라 규칙 한 줄만 남겼다.</p>
+    <div class="gearline">
+      <span>필수 영상 11편 · 나머지는 자료실</span>
+      <span>책 한 권 · 그 주의 장만</span>
+      <span>주 2회 출사 · 36장은 주 1회</span>
+    </div>
+  </header>
+
+  <div class="meter">
+    <span>진행</span>
+    <b><span id="done">0</span> / <span id="total">0</span></b>
+    <div class="bar"><i id="fill"></i></div>
+    <span id="sync">기록 불러오는 중</span>
+  </div>
+
+  <section class="step" style="border-top:2px solid var(--ink)">
+    <div class="stephead"><div class="stepno">원칙</div><div class="when">8주 내내</div></div>
+    <h2>여덟 개면 된다</h2>
+    <div class="rule"><b>카메라</b><span>U1 하나만. 조리개 우선 · F5.6 · ISO 오토 · 저속한계치 1/125 · <b style="font-family:inherit;font-size:inherit;color:inherit">노출 보정 0에서 시작</b>. 하이라이트가 하얗게 날아가는 걸 재생에서 두 번 본 뒤에 −0.7로 내린다. 왜 어두워졌는지 보는 게 노출 공부다.</span></div>
+    <div class="rule"><b>초점</b><span>첫 한 달은 항상 반셔터. 거리감이 서지 않아도 대상에 반셔터면 맞는다. 단번에 누르기(스냅)는 5주차부터 실험한다. 그때 원본의 GR 매뉴얼을 연다.</span></div>
+    <div class="rule"><b>출사</b><span>주 2회, 60~90분, 같은 동네. 강한 빛 2회에 흐린 날 1회를 섞는다. 비 온 뒤 젖은 표면은 이미 당신 주제고, 그건 소프트라이트에서 산다. “왜 나는 흐린 날 사진이 좋은가”도 공부다.</span></div>
+    <div class="rule"><b>장수</b><span>36장 제한은 주 1회만. 나머지 출사는 자유롭게 찍는다. 실패 컷도 데이터다. 8주 뒤 어느 화각을 썼는지 세어 볼 재료가 된다.</span></div>
+    <div class="rule"><b>셀렉</b><span>비슷한 컷은 한 장만. 남길지는 두 질문으로 — <b style="font-family:inherit;font-size:inherit;color:inherit">1년 뒤에도 다시 보고 싶은가</b>, 왜 좋은지 한 줄로 말할 수 있는가. 버리기 아까웠던 것에는 왜 약한지 한 줄. 인스타는 기준이 아니다.</span></div>
+    <div class="rule"><b>책</b><span>《깊고 충실한 사진 강의》(바버라 런던·짐 스톤). 매일 읽는 게 아니라 그 주 개념의 장만 읽는다. 순서는 책 → 촬영 → 결과 확인. 더 얇은 대안은 필립 퍼키스 《사진강의 노트》.</span></div>
+    <div class="rule"><b>사람</b><span>사람 사진은 선택 과제다. 주인공은 사람이든 사물이든 하나면 되고, 조건은 거리다. 얼굴이 특정되는 사진은 허락 없이 올리지 않는다.</span></div>
+    <div class="rule"><b>장비</b><span>8주가 끝나도 바로 사지 않는다. 라이트룸에서 초점거리(28 · 35 · 50)별 장수를 센다. 50mm 크롭만 계속 썼다면 줌이 필요한 게 맞고, 28이 대부분이면 아니다.</span></div>
+  </section>
+
+  <section class="steps" id="steps"></section>
+
+  <section class="step" style="border-top:2px solid var(--ink)">
+    <div class="stephead"><div class="stepno">상시</div><div class="when">주 1편 · 병행</div></div>
+    <h2>사진을 보는 눈은 따로 기른다</h2>
+    <p class="lede">현장 연습과 별개로 매주 한 편. 원본 수련표 STEP 05의 영상(브레송 두 편, 메이젤, 바르트 강독)과 책의 사진사 장이 재료다. 한 달에 작가 한 명을 정해 그 사람이 평생 무엇을 찍었고 왜 그렇게 찍었는지 본다 — 브레송 → 메이젤 → 모리야마 순이 이 표와 맞는다. 매주 남의 사진 3장을 골라 “왜 좋은가”를 빛 / 제스처 / 컬러 세 단어로 쓴다.</p>
+  </section>
+
+  <footer>
+    원본 수련표(31편 자막 전수 검증, GR IV 세팅 매뉴얼, 덜어내기 세 도구, 대표 사진 링크)는 <a href="training.html" target="_blank" rel="noopener">여기</a>. 이 압축판은 그 원본에 대한 “초보자에게 너무 촘촘하다”는 피드백을 받아 만들었다(2026-09-21). 필수 영상의 ‘볼 곳’ 구간과 인용은 원본에서 자막으로 확인한 것이다.<br>
+    인물 촬영은 상대가 거절하면 바로 물러나고, 동의 없이 상업적으로 쓰지 않는다.
+  </footer>
+</div>
+<script>
+const WEEKS=[
+ {no:"1주",t:"노출을 눈으로 본다",
+  lede:"조리개·셔터·ISO·노출 보정이 무엇을 바꾸는지, 히스토그램이 무엇을 보여 주는지. 이 한 주가 있어야 뒤의 “밝은 부분 기준 노출”이 이해된다. 제임스진 편은 공부 순서 자체를 세운다.",
+  v:[{id:"w1v1",t:"사진 공부 이 순서로 하면 거의 실패합니다",u:"https://youtu.be/TGpWZsPOdLk",c:"제임스진",d:"11:03",w:"빛 → 거리 → 구도 → 설정 → 장비. 8:32의 과제(하루 한 번 빛이 예쁜 순간, 같은 자리에서 앞·뒤·낮게·높게)가 이 표 전체의 씨앗이다."},
+     {id:"w1v2",t:"사진 보정 망하는 이유? 기술보다 ‘이것’ 때문입니다",u:"https://youtu.be/Usz5g3_Sv4w",c:"이미지버거",d:"18:05",w:"이번 주는 7:02~10:00만. “히스토그램을 읽을 수 없으면 아예 시작을 못 한다.” 나머지 구간은 8주차에 다시 본다."}],
+  b:{id:"w1b",t:"책 · 노출과 카메라 조작 장",w:"조리개·셔터·ISO 삼각형과 히스토그램 부분만. 읽고 나서 찍는다."},
+  f:[{id:"w1f1",t:"노출 다섯 장",w:"같은 장면을 노출 보정 −2 / −1 / 0 / +1 / +2로 다섯 장. 재생에서 히스토그램을 띄워 어느 장에서 오른쪽 끝이 붙는지(하이라이트가 날아가는지) 확인한다. 밝은 하늘이 있는 장면과 없는 장면, 두 번."}],
+  q:"어느 노출에서 하늘이 하얗게 날아갔고, 어느 노출에서 그림자가 검게 묻혔나. 둘 사이에 내가 좋아하는 밝기가 있었나."},
+
+ {no:"2주",t:"빛을 읽는다",
+  lede:"빛의 방향(순광·측광·역광), 질(하드·소프트), 시간(해 높이). 결론 문장은 하나 — 어둠이 있어야 빛이 보인다. 흐린 날은 피하는 게 아니라 비교 대상이다.",
+  v:[{id:"w2v1",t:"하드라이트 vs 소프트라이트, 순광·역광·측면광 완전정리",u:"https://youtu.be/9Ym24Yp21Rk",c:"SoulCave 소울케이브",d:"17:07",w:"용어와 숫자를 잡는 편. 13:31 “노출은 밝은 부분을 기준으로, 어두운 곳은 후보정으로”가 다음 주부터 쓸 규칙이다. 10:00~13:01은 넘긴다."},
+     {id:"w2v2",t:"빛만 알면 사진초보는 면한다 2탄 — 신카이 마코토",u:"https://youtu.be/nYTFYJKz4PQ",c:"김경만 감독의 사진학개론",d:"9:27",w:"2:31 “빛을 찍으려면 어둠을 찍을 수 있어야 한다.” 6:01의 저녁 거리 사진은 빛 자리를 먼저 정하고 사람을 기다린 사진이다. 자막이 깨져 소리로 듣는다."}],
+  b:{id:"w2b",t:"책 · 빛과 조명 장",w:"자연광의 방향과 질 부분. 스튜디오 조명은 넘긴다."},
+  f:[{id:"w2f1",t:"같은 자리, 세 번",w:"집 앞 한 블록을 오전 9시 / 정오 / 해 지기 40분 전. 해 높이가 바뀌면 고를 수 있는 빛의 방향이 바뀐다는 걸 몸으로 본다."},
+     {id:"w2f2",t:"강한 빛 2회 + 흐린 날 1회",w:"이번 주 세 번 나간다. 두 번은 그림자가 선명한 날, 한 번은 흐린 날. 같은 피사체를 찍어 나란히 놓고, 흐린 날 사진이 좋으면 왜 좋은지 한 줄 쓴다."}],
+  q:"그림자 가장자리가 선명했나 흐렸나. 피사체 뒤에 어둠이 있었나."},
+
+ {no:"3주",t:"거리를 바꾼다",
+  lede:"28mm는 실제 18mm라 가까이 가면 왜곡이 생기고, 그 거리가 곧 사진의 성격이다. 디테일로 잡으려면 가까이, 포인트로 잡으려면 멀리. 목표는 “찍어 보지 않아도 어디까지 나오는지 안다.”",
+  v:[{id:"w3v1",t:"[사진수업] 화각에 대한 이해 (GR4 28mm, RX1r3 35mm)",u:"https://youtu.be/5NYF4mODYvg",c:"SOUNDRAWING 송철의",d:"28:33",w:"볼 곳 0:00~6:00 · 23:33~27:30. 중간 12분은 라이트룸 보정이라 넘긴다. “못 찍겠다 싶으면 깔끔하게 포기”(25:01)도 거리 감각이다."},
+     {id:"w3v2",t:"스트리트 사진에서 거리감이 주는 시선의 변화 / 윤석준",u:"https://youtu.be/sW2cBIahNQA",c:"니콘이미징코리아",d:"41:02",w:"볼 곳 2:03~3:32 · 17:01~18:33 · 33:33~40:03, 약 12분. 단렌즈는 바로 앞까지 가야 하고 그래서 긴장감이 생긴다. 사물·풍경은 단순한 패턴 장소를 고른다(13:02)."}],
+  b:{id:"w3b",t:"책 · 렌즈와 원근 장",w:"초점거리·원근·심도 부분. 28mm 환산과 실초점 18mm의 관계를 여기서 확인한다."},
+  f:[{id:"w3f1",t:"거리 사다리",w:"같은 피사체를 5m · 3m · 2m · 1.2m · 0.7m에서 다섯 장. 누르기 전에 “어디까지 나올지” 말로 예측하고, 찍은 뒤 재생 상세 정보의 거리 숫자와 대조한다. 반셔터로 찍으면 거리가 기록된다."},
+     {id:"w3f2",t:"1.5m 제약 반나절 (선택: 사람)",w:"그날 모든 사진을 1.5m 안쪽에서. 주인공은 사물이어도 되고 사람이어도 된다. 사람이면 뒷모습·손·그림자로 시작하고, 찍고 나서 화면을 보여 주고 목인사."}],
+  q:"몇 걸음이 몇 m인지 이제 말할 수 있나. 1.5m에서 배경은 어떻게 들어왔나."},
+
+ {no:"4주",t:"프레임을 정리한다",
+  lede:"구도는 그림 용어고 사진은 프레임이다 — 어디부터 어디까지 취할 것이냐. 3분할은 깨기 위해 잠깐 배운다. 도구는 높이, 방향, 여백, 잘라내기.",
+  v:[{id:"w4v1",t:"사진은 잘 보는 것에서 시작됩니다 — 시선 훈련 실전법",u:"https://youtu.be/VaaEn2UGQW4",c:"SoulCave 소울케이브",d:"13:03",w:"같은 장소 두 장 비교. 첫 장의 “회랑 끝을 화면 중심에”가 정직한 구도의 예다. 10:31 “한 대상을 최소 열 컷, 7컷부터 창의력”이 이번 주 과제의 출처."},
+     {id:"w4v2",t:"사진 구도 이것만 알면 초보는 면한다 (본편)",u:"https://youtu.be/kVrbrCZM-PA",c:"김경만 감독의 사진학개론",d:"21:42",w:"볼 곳 0:31~8:35 · 19:33~20:34. 3분할을 3분 소개하고 나머지는 깬다. 7:33의 변주 목록(좌우 여백·헤드 스페이스 자르기·앙각·부감·옆 자르기·한쪽 몰기)을 체크리스트로. 결론은 “정가운데 놓는 습성을 버려라.”"}],
+  b:{id:"w4b",t:"책 · 사진 보기·구성 장",w:"프레임, 시점, 여백 부분. 규칙 목록은 외우지 않고 예시 사진만 본다."},
+  f:[{id:"w4f1",t:"발로 열 장",w:"한 장면에서 열 번, 매번 위치를 바꿔서 — 거리·높이·부분 세 축으로. 열 장을 나란히 놓고 한 장 고른다. 7컷부터가 진짜 훈련이다."},
+     {id:"w4f2",t:"일부만 한 장 더",w:"통째로 넣던 컷마다 일부만 잘라 넣은 컷을 한 장 더. 잘린 쪽이 프레임 밖을 상상하게 하는지 본다. 방해되는 기둥·전기줄도 한 번은 걸어서 찍는다."}],
+  q:"가장자리에 걸린 것이 재현을 돕나 방해하나. 피사체를 가운데 두지 않은 컷이 몇 장인가."},
+
+ {no:"5주",t:"사진을 읽는다 · 스냅을 연다",
+  lede:"사코스키의 다섯 문법(사물 그 자체·디테일·프레임·시간성·밴티지 포인트)으로 남의 사진을 뜯어 본다. 브레송은 정설을 먼저 보고 다음 주에 의심한다. 이번 주부터 단번에 누르기(스냅)를 실험해도 된다 — 원본의 GR 매뉴얼을 연다.",
+  v:[{id:"w5v1",t:"공개강의 — 사진가에게 필수적인 아홉 가지 사진의 문법",u:"https://youtu.be/4APjRGv-L10",c:"진동선사진TV",d:"31:44",w:"볼 곳 5:00~10:34 · 17:00~18:31 · 23:32~26:32 · 28:31~30:33. 25:03 “구도는 그림에서 쓰는 말이다. 사진은 프레임이다.” 렌즈사와 MoMA 계보는 곁길."},
+     {id:"w5v2",t:"세계적인 사진가 27 — 앙리 카르티에 브레송의 사진세계",u:"https://youtu.be/c64l4jkhl4Y",c:"진동선사진TV",d:"24:27",w:"“라이카를 산 지 나흘 만에 구도를 끝냈다”는 정설로 시작해, 본론(10:25~14:33)은 그 너머의 일상성과 사소함이다. 음악만 흐르는 구간이 8분쯤 있다. 다음 주 선택 영상(다담음 ‘결정적 순간’)이 이 정설을 뒤집는다."}],
+  b:{id:"w5b",t:"책 · 사진의 역사 장",w:"브레송 전후만. 왜 그 시대 사진가들이 그렇게 찍었는지에 집중한다."},
+  f:[{id:"w5f1",t:"사진 3장, 왜 좋은가",w:"좋아하는 사진 3장을 골라 각각 세 문장. 무엇이 프레임 안에 있고 무엇이 잘렸나, 어디서 찍었나(높이·거리), 빛은 어디서 오나."},
+     {id:"w5f2",t:"베껴 그리기",w:"그중 한 장을 종이에 선으로만 그린다. 무엇이 어디에 있는지가 남는다. 첫 장은 생라자르역 뒤편으로."}],
+  q:"내가 좋아하는 사진 3장에 공통점이 있었나. 그게 빛인가 거리인가 프레임인가."},
+
+ {no:"6주",t:"나만의 주제 하나",
+  lede:"진단에서 이미 나온 주제가 있다 — 비 온 뒤 젖은 표면, 그림자, 도시의 작은 이야기. 하나만 고르고 이번 주는 그것만 찍는다. 영상은 없다. 선택으로 Tiger Seo의 빛 관찰 7항목과 메이젤 편(원본 STEP 02·05).",
+  v:[],
+  b:{id:"w6b",t:"책 · 작가 연구 (선택)",w:"책의 작가 도판 중 한 사람을 정해 그 사람의 사진 열 장을 이어서 본다. 무엇을 반복해서 찍었나."},
+  f:[{id:"w6f1",t:"주제 9장 시리즈",w:"주제 하나로 9장. 비율은 4:5로 통일(송철의 8:31). 낱장이 아니라 아홉 장이 한 사람 사진으로 보이는지가 기준이다. 여기서 계정이 달라진다."}],
+  q:"아홉 장을 한 화면에 놓았을 때 빠져도 되는 장이 있었나. 반복되는 것이 무엇이었나."},
+
+ {no:"7주",t:"버린다",
+  lede:"촬영은 시작이고 진짜 작업은 셀렉이다. 삭제 기준이 생기면 촬영 기준도 같이 생긴다. 목표는 정확히 찍었는데도 90%를 지우는 것.",
+  v:[{id:"w7v1",t:"사진은 잘 찍는 게 아니라 잘 버리는 겁니다",u:"https://youtu.be/na3Dcfs2Cuw",c:"제임스진",d:"9:21",w:"6:00~6:31 셀렉 절차 — 보정 전에 감정 없이 훑기, 첫 느낌 약한 것은 바로 넘기기, 비슷한 컷은 묶음당 한 장. 8:00 “많이 찍어서 90%가 아니라 정확히 찍었는데도 냉정하게 90%.”"}],
+  b:{id:"w7b",t:"책 · 편집과 시퀀스 장",w:"편집(에디팅) 부분만. 프린트·전시는 넘긴다."},
+  f:[{id:"w7f1",t:"50장 → 5장",w:"이번 주 출사 하나는 36장 제한으로. 전체를 훑고 비슷한 컷은 한 장만, 남길지는 “1년 뒤에도 보고 싶은가”로. 버린 것 중 아까운 3장에 왜 약한지 한 줄. 6주치 셀렉 30장을 한 화면에 펼쳐 반복되는 것을 찾는다."}],
+  q:"지운 사진의 약점이 멀었다 / 배경이 시끄럽다 / 빛이 없었다 / 늦었다 중 어디에 몰렸나."},
+
+ {no:"8주",t:"마지막에 색을 얹는다",
+  lede:"현상은 카메라가 기록한 빛을 이미지로 바꾸는 작업이다. 순서는 밝기 → 콘트라스트 → 웜/쿨 → 채도, 레시피는 그다음. 남의 프리셋이 안 먹혔던 이유가 여기서 풀린다.",
+  v:[{id:"w8v1",t:"사진 보정 망하는 이유? 기술보다 ‘이것’ 때문입니다 (다시)",u:"https://youtu.be/Usz5g3_Sv4w",c:"이미지버거",d:"18:05",w:"이번엔 11:01~16:02. 밝기(밝게/어둡게) × 콘트라스트(기본/강/약) = 여섯 무드, 웜/쿨 × 고/저채도 = 네 톤. 그다음이 컬러 그레이딩. 선택으로 같은 채널의 ‘제자리’ 편과 송철의 ‘도쿄의 밤’ 현상 시연(원본 STEP 06)."}],
+  b:{id:"w8b",t:"책 · 디지털 편집 장",w:"RAW와 JPEG, 밝기·대비·색의 순서 부분. 프리셋 이야기는 없어도 된다."},
+  f:[{id:"w8f1",t:"내 레시피 한 개",w:"8주치 셀렉을 놓고 내 피드에 반복되는 감정 하나를 정한다. 그 감정의 밝기·콘트라스트·웜/쿨·채도 조합 하나를 레시피로 확정한다. 남의 레시피 복사는 그만."},
+     {id:"w8f2",t:"화각 세기",w:"라이트룸에서 8주치 사진을 초점거리(28 · 35 · 50)로 걸러 장수를 센다. 그 숫자가 다음 장비 이야기의 유일한 근거다."}],
+  q:"내 사진의 감정 한 단어는 무엇이었나. 그 단어를 밝기·콘트라스트·색으로 옮길 수 있었나."}
+];
+
+const CHECK='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5 6 12l7.5-8"/></svg>';
+let state={};const ids=[];
+
+function row(o,kind){
+  const li=document.createElement('li');
+  li.className='row';li.dataset.id=o.id;
+  const btn=document.createElement('button');
+  btn.type='button';btn.className='tick';btn.id='t-'+o.id;
+  btn.setAttribute('role','checkbox');btn.setAttribute('aria-checked','false');
+  btn.setAttribute('aria-label',o.t+' 완료 표시');
+  btn.innerHTML=CHECK;
+  btn.addEventListener('click',()=>toggle(o.id));
+  const body=document.createElement('div');
+  const title=kind==='v'
+    ? '<a class="ttl" href="'+o.u+'" target="_blank" rel="noopener">'+o.t+'</a>'
+    : '<span class="ttl" style="border-bottom:none">'+o.t+'</span>';
+  const meta=kind==='v'
+    ? '<div class="meta"><span class="ch">'+o.c+'</span>'+(o.d?'<span>'+o.d+'</span>':'')+'<span class="tag core">필수</span></div>'
+    : (kind==='b' ? '<div class="meta"><span class="tag">읽기</span></div>' : '');
+  body.innerHTML=title+meta+'<div class="why">'+o.w+'</div>';
+  li.append(btn,body);ids.push(o.id);
+  return li;
+}
+
+function render(){
+  const st=document.getElementById('steps');
+  WEEKS.forEach(s=>{
+    const sec=document.createElement('section');sec.className='step';
+    const head=document.createElement('div');
+    head.innerHTML='<div class="stephead"><div class="stepno">'+s.no+'</div></div>'+
+      '<h2>'+s.t+'</h2><p class="lede">'+s.lede+'</p>';
+    sec.appendChild(head);
+    if(s.v.length){const ul=document.createElement('ul');ul.className='rows';
+      s.v.forEach(v=>ul.appendChild(row(v,'v')));sec.appendChild(ul);}
+    const fd=document.createElement('div');fd.className='field';
+    fd.innerHTML='<div class="eyebrow">이번 주</div>';
+    const ful=document.createElement('ul');ful.className='rows';
+    if(s.b)ful.appendChild(row(s.b,'b'));
+    s.f.forEach(f=>ful.appendChild(row(f,'f')));
+    fd.appendChild(ful);sec.appendChild(fd);
+    const q=document.createElement('p');q.className='q';q.innerHTML='<b>확인</b>'+s.q;sec.appendChild(q);
+    st.appendChild(sec);
+  });
+  document.getElementById('total').textContent=ids.length;
+}
+
+function paint(){
+  let n=0;
+  ids.forEach(id=>{
+    const on=!!state[id];if(on)n++;
+    const b=document.getElementById('t-'+id);
+    if(b){b.setAttribute('aria-checked',on?'true':'false');
+      b.closest('.row').dataset.done=on?'1':'0';}
+  });
+  document.getElementById('done').textContent=n;
+  document.getElementById('fill').style.width=(ids.length?n/ids.length*100:0)+'%';
+}
+
+let store=null;
+function toggle(id){ if(state[id])delete state[id];else state[id]=true; paint(); save(); }
+function save(){
+  try{localStorage.setItem('gr28c',JSON.stringify(state))}catch(e){}
+  if(store)store.set({done:state}).catch(()=>{});
+}
+function note(t){document.getElementById('sync').textContent=t}
+
+render();
+try{const c=localStorage.getItem('gr28c');if(c)state=JSON.parse(c)||{}}catch(e){}
+paint();
+note('이 기기에만 저장됨');
+
+(async()=>{
+  const db=await (window.claude?.use?.('db')??Promise.resolve(null));
+  if(!db){note('이 기기에만 저장됨');return;}
+  const ref=db.doc('progress/compact');
+  try{
+    const snap=await ref.get();
+    if(snap.exists){state=(snap.data()||{}).done||{};paint();}
+    store=ref;note('기기 간 저장됨');
+    ref.onSnapshot(s=>{
+      const d=(s.exists?(s.data()||{}).done:null);
+      if(d&&!s.metadata.hasPendingWrites){state=d;paint();}
+    },()=>note('이 기기에만 저장됨'));
+  }catch(e){note('이 기기에만 저장됨');}
+})();
+</script>
+</body>
+</html>
